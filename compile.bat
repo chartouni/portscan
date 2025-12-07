@@ -1,12 +1,13 @@
 @echo off
-echo ========================================
-echo Lebanese Government Port Scanner
+echo ============================================================
+echo Professional Network Security Scanner
 echo Windows Compilation Script
-echo ========================================
+echo FOR AUTHORIZED SECURITY TESTING ONLY
+echo ============================================================
 echo.
 
-echo Compiling port scanner for Windows...
-g++ -std=c++17 -Wall -O2 main_win.cpp port_scanner_win.cpp -o lb_scanner.exe -lws2_32
+echo Compiling security scanner for Windows...
+g++ -std=c++17 -Wall -O2 main_win.cpp port_scanner_win.cpp -o security_scanner.exe -lws2_32
 
 if %ERRORLEVEL% EQU 0 (
     echo.
@@ -14,11 +15,14 @@ if %ERRORLEVEL% EQU 0 (
     echo SUCCESS! Compilation completed.
     echo ========================================
     echo.
-    echo Executable created: lb_scanner.exe
+    echo Executable created: security_scanner.exe
     echo.
     echo Try running:
-    echo   lb_scanner.exe -h
-    echo   lb_scanner.exe -t bdl.gov.lb -c -o results.csv
+    echo   security_scanner.exe -h
+    echo   security_scanner.exe -t localhost -c -a "Homelab audit" -o report.html
+    echo.
+    echo REMINDER: Only scan systems you own or have
+    echo explicit written permission to test.
     echo.
 ) else (
     echo.
@@ -29,7 +33,8 @@ if %ERRORLEVEL% EQU 0 (
     echo Troubleshooting:
     echo 1. Make sure g++ is installed and in PATH
     echo 2. Try: g++ --version
-    echo 3. You may need MinGW-w64
+    echo 3. Install MinGW-w64: choco install mingw
+    echo    OR download from: https://www.mingw-w64.org/
     echo.
     pause
 )
